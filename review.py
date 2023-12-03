@@ -7,8 +7,6 @@ class Review:
         self.restaurant = restaurant
         self.rating = rating
         Review.all_reviews.append(self)
-        restaurant.reviews.append(self)
-        customer.reviews.append(self)
 
     def get_rating(self):
         return self.rating
