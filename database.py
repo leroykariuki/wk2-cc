@@ -55,3 +55,5 @@ class Database:
     def get_restaurant_reviews(self, restaurant_id):
         self.cursor.execute("SELECT * FROM reviews WHERE restaurant_id = ?", (restaurant_id,))
         return self.cursor.fetchall()
+    
+    
