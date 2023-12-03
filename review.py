@@ -7,16 +7,18 @@ class Review:
         self.restaurant = restaurant
         self.rating = rating
         Review.all_reviews.append(self)
+        restaurant.reviews.append(self)
+        customer.reviews.append(self)
 
-    def rating(self):
+    def get_rating(self):
         return self.rating
 
     @classmethod
     def all(cls):
         return cls.all_reviews
 
-    def customer(self):
+    def get_customer(self):
         return self.customer
 
-    def restaurant(self):
+    def get_restaurant(self):
         return self.restaurant
