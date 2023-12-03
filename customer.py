@@ -25,6 +25,7 @@ class Customer:
         return list(set([review.get_restaurant() for review in self.reviews]))
 
     def add_review(self, restaurant, rating):
+        from review import Review  # Importing here to avoid circular import
         new_review = Review(self, restaurant, rating)
         self.reviews.append(new_review)
 
