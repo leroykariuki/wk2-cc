@@ -16,3 +16,17 @@ class Customer:
 
     def full_name(self):
         return f"{self.given_name} {self.family_name}"
+
+    @classmethod
+    def all(cls):
+        return cls.all_customers
+
+    def restaurants(self):
+        return list(set([review.restaurant() for review in self.reviews]))
+
+    def add_review(self, restaurant, rating):
+        new_review = Review(self, restaurant, rating)
+        self.reviews.append(new_review)
+
+    def num_reviews(self):
+        return len(self.reviews)
