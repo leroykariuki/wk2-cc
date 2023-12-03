@@ -1,4 +1,8 @@
 # review.py
+from database import Database
+
+db = Database('yelp.db')
+
 class Review:
     all_reviews = []
 
@@ -6,6 +10,7 @@ class Review:
         self.customer = customer
         self.restaurant = restaurant
         self.rating = rating
+        self.id = db.insert_review(customer.id, restaurant.id, rating)
         Review.all_reviews.append(self)
 
     def get_rating(self):

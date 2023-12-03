@@ -1,4 +1,8 @@
 # customer.py
+from database import Database
+
+db = Database('yelp.db')
+
 class Customer:
     all_customers = []
 
@@ -6,6 +10,7 @@ class Customer:
         self.given_name = given_name
         self.family_name = family_name
         self.reviews = []
+        self.id = db.insert_customer(given_name, family_name)
         Customer.all_customers.append(self)
 
     def get_given_name(self):
